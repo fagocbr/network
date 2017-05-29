@@ -1,14 +1,14 @@
 <template>
   <div :class="classNames">
     <slot name="label">
-      <label class="label-checkbox" @click="checked = !checked" v-if="schema.label">
+      <label class="label-checkbox" @click="checked = !checked" v-if="!properties.inline">
         {{ label }}
       </label>
     </slot>
     <slot name="component">
       <label>
-        <q-checkbox v-model="checked" :disable="schema.disabled"></q-checkbox>
-        {{ schema.placeholder }}
+        <q-checkbox v-model="checked" :disable="properties.disabled"></q-checkbox>
+        {{ properties.placeholder }}
       </label>
     </slot>
     <slot name="error">
@@ -25,22 +25,10 @@
     data: () => ({
       checked: false
     }),
-    computed: {
-      classNames () {
-        const classNames = ['field-checkbox']
-        if (this.schema.placeholder) {
-          classNames.push('with-placeholder')
-        }
-        return classNames
-      }
-    },
     watch: {
       checked () {
         this.$emit('input', this.checked)
       }
-    },
-    created () {
-      this.checked = !!this.value
     }
   }
 </script>

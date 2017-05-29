@@ -1,40 +1,72 @@
 import { Utils } from 'quasar-framework'
 
-const schema = {
+const defaults = {
   id: Utils.uid(),
   label: '',
   title: '',
   placeholder: '',
   mask: '',
+  className: '',
+  width: '100',
+  inline: false,
   disabled: false,
-  required: true
+  required: false
 }
 
 const Abstract = {
   name: 'field-abstract',
   props: {
+    /**
+     * v-model
+     */
     value: {
-      type: String
+      required: true,
+      default: undefined
     },
+    /**
+     * Pass to properties on created
+     */
     schema: {
       type: Object,
-      default: () => schema
+      default: () => ({})
     }
   },
-  data: () => ({}),
+  data: () => ({
+    properties: {},
+    classNames: []
+  }),
   computed: {
+    /**
+     * @returns {string}
+     */
     label () {
-      return this.schema.label + ' ' + (this.schema.required ? '*' : '')
+      return this.properties.label + ' ' + (this.properties.required ? '*' : '')
     }
   },
-  create () {
-    this.schema = Object.assign({}, schema, this.schema)
+  /**
+   * hook created
+   */
+  created () {
+    this.properties = Object.assign({}, defaults, this.schema)
   },
   methods: {
     /**
+     * @param name
+     * @returns {Array}
+     */
+    getDefaultClassName (name) {
+      const classNames = []
+      const width = 'has-' + String(this.properties.inline ? '100' : this.properties.width)
+      classNames.push('field')
+      classNames.push(width)
+      classNames.push(name)
+
+      return classNames
+    },
+    /**
      * @param value
      */
-    setValue (value) {
+    updateValue (value) {
       this.$refs.input.value = value
       this.$emit('input', value)
     },
@@ -44,28 +76,77 @@ const Abstract = {
     getValue () {
       return this.$refs.input.value
     },
-    fieldKeyDown (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldKeyDown (value, $event) {
+      this.updateValue(value)
+      this.$emit('key_down', value, $event)
     },
-    fieldKeyPress (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldKeyPress (value, $event) {
+      this.updateValue(value)
+      this.$emit('key_press', value, $event)
     },
-    fieldKeyUp (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldKeyUp (value, $event) {
+      this.updateValue(value)
+      this.$emit('key_up', value, $event)
     },
-    fieldTextInput (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldMouseUp (value, $event) {
+      this.updateValue(value)
+      this.$emit('mouse_up', value, $event)
     },
-    fieldMouseUp (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldFocus (value, $event) {
+      this.updateValue(value)
+      this.$emit('focus', value, $event)
     },
-    fieldFocusIn (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldBlur (value, $event) {
+      this.updateValue(value)
+      this.$emit('blur', value, $event)
     },
-    fieldFocusOut (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldCut (value, $event) {
+      this.updateValue(value)
+      this.$emit('cut', value, $event)
     },
-    fieldBlur (e) {
-      this.$emit('blur')
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldCopy (value, $event) {
+      this.updateValue(value)
+      this.$emit('copy', value, $event)
     },
-    fieldCut (e) {
-    },
-    fieldCopy (e) {
-    },
-    fieldPaste (e) {
+    /**
+     * @param {*} value
+     * @param {object} $event
+     */
+    fieldPaste (value, $event) {
+      this.updateValue(value)
+      this.$emit('paste', value, $event)
     }
   }
 }

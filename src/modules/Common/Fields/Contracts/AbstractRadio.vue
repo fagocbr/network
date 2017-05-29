@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <label style="display: block">{{ label }}</label>
+  <div :class="classNames">
+    <label class="input-label" v-if="!properties.inline">{{ label }}</label>
     <label v-for="__option in options">
-      <q-radio  :val="__option.value" v-model="model" @input="$emit('input', model)"></q-radio>
+      <q-radio :val="__option.value" v-model="model" @input="$emit('input', model)"></q-radio>
       {{ __option.label }}
     </label>
   </div>
@@ -20,7 +20,7 @@
     }),
     created () {
       this.model = this.value
-      this.options = this.schema.options
+      this.options = this.properties.options
     }
   }
 </script>

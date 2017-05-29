@@ -1,24 +1,24 @@
-
 <template>
   <div :class="classNames">
-    <slot name="component">
-      <input :type="type" ref="input" :name="schema.name" :id="schema.id" :value="value" :class="['full-width']"
-             :disabled="schema.disabled" :placeholder="schema.placeholder" :title="schema.title"
-             :required="schema.required"
-             @keydown="fieldKeyDown(arguments[0])"
-             @keypress="fieldKeyPress(arguments[0])"
-             @keyup="fieldKeyUp(arguments[0])"
-             @textInput="fieldTextInput(arguments[0])"
-             @mouseup="fieldMouseUp(arguments[0])"
-             @focus.prevent="fieldFocusIn(arguments[0])"
-             @focusout="fieldFocusOut(arguments[0])"
-             @cut="fieldCut(arguments[0])"
-             @copy="fieldCopy(arguments[0])"
-             @paste="fieldPaste(arguments[0])"
-             @blur="fieldBlur(arguments[0])"/>
-    </slot>
     <slot name="label">
-      <label :for="schema.id" v-if="schema.label">{{ label }}</label>
+      <label class="input-label" :for="properties.id" v-if="!properties.inline">{{ label }}</label>
+    </slot>
+    <slot name="component">
+      <input :type="type" ref="input" :name="properties.name" :id="properties.id" :value="value"
+             :class="['input', 'full-width']"
+             :disabled="properties.disabled" :placeholder="properties.placeholder" :title="properties.title"
+             :required="properties.required"
+             @keydown="fieldKeyDown($event.target.value, $event)"
+             @keypress="fieldKeyPress($event.target.value, $event)"
+             @keyup="fieldKeyUp($event.target.value, $event)"
+             @mouseup="fieldMouseUp($event.target.value, $event)"
+             @focus="fieldFocus($event.target.value, $event)"
+             @cut="fieldCut($event.target.value, $event)"
+             @copy="fieldCopy($event.target.value, $event)"
+             @paste="fieldPaste($event.target.value, $event)"
+             @blur="fieldBlur($event.target.value, $event)"
+             @input="updateValue($event.target.value, $event)"/>
+      <span class="input-bar"></span>
     </slot>
     <slot name="error">
     </slot>
@@ -33,12 +33,7 @@
     name: 'abstract-input',
     data: () => ({
       type: 'text'
-    }),
-    computed: {
-      classNames () {
-        return ['floating-label']
-      }
-    }
+    })
   }
 </script>
 

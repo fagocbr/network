@@ -2,7 +2,7 @@ export default [
   {
     id: 'apply',
     position: ['top', 'bottom'],
-    classNames: ['primary', 'raised'],
+    classNames: ['primary'],
     label: 'Salvar',
     click: resourceForm => {
       resourceForm.applyRecord()
@@ -11,7 +11,7 @@ export default [
   {
     id: 'back',
     position: ['top', 'bottom'],
-    classNames: ['link', 'raised'],
+    classNames: ['white'],
     label: 'Voltar',
     click: resourceForm => {
       resourceForm.$router.push(resourceForm.base)
@@ -21,7 +21,7 @@ export default [
     id: 'add',
     icon: 'add',
     position: ['floating'],
-    classNames: ['primary', 'circular', 'button-bottom-right', 'raised'],
+    classNames: ['primary', 'circular'],
     click: resourceForm => {
       resourceForm.$router.push(`${resourceForm.base}/create`)
     }
