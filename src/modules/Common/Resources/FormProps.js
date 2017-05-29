@@ -1,3 +1,5 @@
+import FormActions from 'src/modules/Common/Resources/FormActions'
+
 const FormProps = {
   props: {
     tabs: {
@@ -32,34 +34,7 @@ const FormProps = {
     },
     actions: {
       type: Array,
-      default: () => ([
-        {
-          position: ['top', 'bottom'],
-          classNames: ['primary', 'raised'],
-          label: 'Salvar',
-          click: vm => {
-            vm.apply()
-          }
-        },
-        {
-          position: ['top', 'bottom'],
-          classNames: ['link', 'raised'],
-          label: 'Fechar',
-          icon: 'add',
-          click: vm => {
-            vm.$router.push(vm.$parent.base)
-          }
-        },
-        {
-          position: ['floating'],
-          classNames: ['primary', 'circular', 'button-bottom-right', 'raised'],
-          label: '',
-          icon: 'add',
-          click: vm => {
-            vm.$router.push(`${vm.$parent.base}/create`)
-          }
-        }
-      ])
+      default: () => FormActions
     },
     params: {
       type: Array,

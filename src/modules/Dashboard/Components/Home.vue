@@ -4,22 +4,27 @@
       Home
     </div>
     <div class="app-container">
-
+      <resource-form :title="title" :base="base" :scope="scope" :schemas="schemas" :service="service"></resource-form>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import ResourceForm from 'src/modules/Common/Resources/Form.vue'
+  import {schemas, service} from 'src/modules/Domains/Aluno/Model/resources'
+
   export default {
     name: 'dashboard-home',
-    props: {},
-    data: () => ({}),
-    computed: {},
-    methods: {},
-    created () {
+    components: {
+      'resource-form': ResourceForm
     },
-    mounted () {
-    }
+    data: () => ({
+      title: 'Formulário do Mal',
+      base: '/dashboard',
+      scope: 'edit',
+      service: service,
+      schemas: schemas
+    })
   }
 </script>
 

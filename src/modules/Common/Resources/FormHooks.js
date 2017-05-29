@@ -1,4 +1,4 @@
-import {parseItems, parseRecord} from 'src/services/Resource'
+import {parseItems, parseRecord} from 'src/services/resource'
 
 const getParameters = (route, params) => {
   // route.params.id
