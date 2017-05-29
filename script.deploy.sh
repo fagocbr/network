@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "~> building app"
-docker exec -it phpzm-node npm run build
+docker exec -it network-node npm run build
 
 if [ ! -d "deploy" ]; then
   echo "~> creating deploy folder"

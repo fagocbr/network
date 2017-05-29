@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ ! -d "node_modules" ]; then
-  echo "installing dependencies"
+  echo "~> installing dependencies"
   npm i
-  echo "dependencies installed"
+  echo "~> dependencies installed"
 fi
-echo "starting dev"
+echo "~> starting dev"
 npm run dev
