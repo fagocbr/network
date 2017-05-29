@@ -1,3 +1,82 @@
+
 .form
+  display flex
+  min-width 300px
+  width 100%
+  flex-wrap wrap
+  flex-flow row wrap
   .field
+    text-align left
+    padding 5px
     margin 0 0 10px 0
+    width 100%
+    .input-label
+      display block
+      text-align left
+      font-size 14px
+      padding 2px 0 4px 0
+      color #474747
+      margin 0 0 5px 0
+    input:not(.no-style), textarea:not(.no-style), .textfield:not(.no-style)
+      padding-left 8px
+      padding-right 8px
+      border-width 1px
+      border-style solid
+      border-color #e2e2e2
+      background-color #fff
+      vertical-align top
+      border-radius 2px
+      box-shadow 1px 3px 4px 0 rgba(0, 0, 0, 0.03), 0 0 3px 0px rgba(0, 0, 0, 0.03), inset 1px 2px 3px 0 rgba(0, 0, 0, 0.05), inset 0 0 3px 0px rgba(0, 0, 0, 0.05)
+      transition all .5s ease;
+    input:not(.no-style):hover, textarea:not(.no-style):hover, .textfield:not(.no-style):hover
+      border-color #cacaca
+
+    input:disabled, textarea:disabled, .textfield:disabled
+      background-color #d0d0d0
+      border-radius 2px
+      opacity .6 !important
+      border-color #cccccc
+
+    input:disabled:hover, textarea:disabled:hover, .textfield:disabled:hover
+      border-bottom 1px dotted #979797
+      box-shadow none
+
+    input:not(.no-style):focus, textarea:not(.no-style):focus, .textfield:not(.no-style):focus
+      box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.33), 0 0 0 1px rgba(0, 0, 0, 0.1)
+      border-color #d2d2d2
+
+    &.has-error
+      input:not(.no-style), textarea:not(.no-style), .textfield:not(.no-style)
+        border-color rgba(219, 40, 40, 0.27)
+        background-color rgba(255, 0, 0, 0.09)
+
+    .input-bar
+      position relative
+      display block
+    .input-bar:before, .input-bar:after
+      content " "
+      background $primary
+      height 2px
+      width 0
+      position absolute
+      bottom 2px
+      transition all
+      transition-duration 300ms
+    .input-bar:before
+      left 50%
+    .input-bar:after
+      right 50%
+    .input:focus ~ .input-bar:before, .input:focus ~ .input-bar:after
+      width 50%
+    .input.has-error ~ .input-bar:before, .input.has-error ~ .input-bar:after
+      background $negative
+
+    textarea ~ .input-bar:before, textarea ~ .input-bar:after
+      bottom 5px
+
+@media (min-width 768px)
+  .form
+    .field
+      for width in (1..20)
+        &.has-{width * 5}
+          max-width (width * 5)%
