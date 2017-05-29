@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
   import ResourceForm from 'src/modules/Common/Resources/Form.vue'
-  import {schemas, service} from 'src/modules/Domains/Aluno/Model/resources'
+  import {schemas, service} from 'src/modules/Domains/Demo/Model/resources'
 
   export default {
     name: 'dashboard-home',

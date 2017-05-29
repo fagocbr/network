@@ -26,5 +26,29 @@ export const schemas = [
         }
       }
     }
+  },
+  {
+    field: 'aln_sexo',
+    label: 'Sexo',
+    scope: ['create', 'edit'],
+    schema: {
+      component: 'field-radio',
+      options: [
+        {
+          value: 'F',
+          label: 'Feminino'
+        },
+        {
+          value: 'M',
+          label: 'Masculino'
+        }
+      ],
+      order: 1,
+      overrides: {
+        edit: {
+          order: 2
+        }
+      }
+    }
   }
 ]

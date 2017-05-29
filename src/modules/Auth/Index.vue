@@ -12,9 +12,9 @@
           <img src="/statics/logo.png" alt="logo" style="margin: 40px 0 0 0; height: 200px">
           <br>
           <form @submit.prevent="submit" class="form" style="max-width: 420px; margin: 0 auto;">
-            <component :is="schemas.user.component" :schema="schemas.user" class="field"></component>
-            <component :is="schemas.password.component" :schema="schemas.password" class="field"></component>
-            <component :is="schemas.remember.component" :schema="schemas.remember" class="field"></component>
+            <component :is="schemas.user.component" :schema="schemas.user" v-model="record.user"></component>
+            <component :is="schemas.password.component" :schema="schemas.password" v-model="record.password"></component>
+            <component :is="schemas.remember.component" :schema="schemas.remember" v-model="record.remember"></component>
             <div class="field">
               <button class="primary raised full-width">Log In</button>
             </div>
@@ -29,6 +29,8 @@
 <script type="text/javascript">
   import AppLayout from 'modules/Common/Layout/AppLayout.vue'
   import Stars from 'src/modules/Foolish/Stars.vue'
+
+  import 'src/modules/Common/Fields'
 
   export default {
     name: 'auth-index',
@@ -49,6 +51,11 @@
           component: 'field-checkbox',
           label: 'Remember'
         }
+      },
+      record: {
+        user: '',
+        password: '',
+        remember: false
       }
     }),
     methods: {
