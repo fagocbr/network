@@ -41,6 +41,7 @@ const FormMethods = {
           })
       }
       __load(false)
+      throw new Error(`There is no action '${this.action}' in service on ${this.$options.name}`)
     },
     /**
      * @param message
@@ -54,6 +55,18 @@ const FormMethods = {
         message = message.replace(regex, this.record[property])
       }
       return message
+    },
+    /**
+     * @param action
+     */
+    resolveAction (action) {
+      action.click(this)
+    },
+    /**
+     * @param map
+     */
+    mapAction (map) {
+      this.$parent.actions = this.actions.map(map)
     },
     /**
      * @param error

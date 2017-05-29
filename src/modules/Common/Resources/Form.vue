@@ -5,10 +5,19 @@
       <div slot="buttons-top" class="form-top">
         <form-action :actions="buttonsTop"></form-action>
       </div>
-      <div class="form-body">
-        <div class="form">
-          <component v-for="__item in items" :key="__item.field" :ref="__item.field" :is="__item.component"
-                     v-bind="__item.schema" v-model="record[__item.field]" :state="state"></component>
+      <div slot="form" class="form-body">
+        <div class="form" v-if="tabs.length">
+          <div v-for="_tab in tabs">
+            <button class="primary" @click="selected = _tab.value">{{ _tab.label }}</button>
+          </div>
+          <div v-for="_tab in tabs" v-show="_tab.value === selected">
+            <component v-for="_item in itemsFromTab[_tab.value]" :key="_item.field" :ref="_item.field" :is="_item.component"
+                       v-bind="_item.schema" v-model="record[_item.field]" :state="state"></component>
+          </div>
+        </div>
+        <div class="form" v-if="!tabs.length">
+          <component v-for="_item in items" :key="_item.field" :ref="_item.field" :is="_item.component"
+                     v-bind="_item.schema" v-model="record[_item.field]" :state="state"></component>
         </div>
       </div>
       <div slot="buttons-bottom" class="form-bottom">

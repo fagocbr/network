@@ -5,7 +5,7 @@
     </div>
     <div class="app-container">
       <resource-form :title="title" :base="base" :service="service" :action="action"
-                     :environment="environment" :schemas="schemas"></resource-form>
+                     :scope="scope" :schemas="schemas" :actions="actions"></resource-form>
     </div>
   </div>
 </template>
@@ -19,19 +19,59 @@
       ResourceForm
     },
     data: () => ({
-      title: 'Form',
+      title: 'Forms do Mal',
       base: '/dashboard/forms',
       service: {},
       action: 'create',
-      environment: 'create',
+      scope: 'create',
       schemas: [
         {
           field: 'aln_nome',
           label: 'Nome',
-          environment: ['create'],
+          scope: ['create', 'index', 'edit'],
           schema: {
+            tab: 'one',
             component: 'field-text',
-            order: 1
+            order: 1,
+            overrides: {
+              index: {
+                order: 2
+              }
+            }
+          }
+        }
+      ],
+      actions: [
+        {
+          id: 'save',
+          position: ['top', 'bottom'],
+          classNames: ['primary', 'raised'],
+          disabled: true,
+          label: 'Salvar',
+          click: resourceForm => {
+            resourceForm.applyRecord()
+          }
+        },
+        {
+          position: ['top', 'bottom'],
+          classNames: ['raised'],
+          label: 'Habilitar',
+          click: resourceForm => {
+            resourceForm.mapAction(_action => {
+              if (_action.id === 'save') {
+                _action.disabled = !_action.disabled
+              }
+              return _action
+            })
+          }
+        },
+        {
+          position: ['floating'],
+          classNames: ['primary', 'circular', 'button-bottom-right', 'raised'],
+          label: '',
+          icon: 'add',
+          click: resourceForm => {
+            resourceForm.$router.push(`${resourceForm.base}/create`)
           }
         }
       ]

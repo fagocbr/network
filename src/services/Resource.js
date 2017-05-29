@@ -2,7 +2,7 @@
 
 // filter the array by the environment property
 export const filterByEnvironment = (environment) => {
-  return (__item) => __item.environment.includes(environment)
+  return (__item) => __item.scope.includes(environment)
 }
 
 // create a formatted object to be used in forms

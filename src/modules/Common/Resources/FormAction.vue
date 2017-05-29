@@ -1,8 +1,8 @@
 <template>
   <div class="form-action">
-    <button v-for="__action in actions" :class="__action.classNames" @click="click(__action)">
-      {{ __action.label }}
+    <button v-for="__action in actions" :disabled="__action.disabled" :class="__action.classNames" @click="click(__action)">
       <i v-if="__action.icon">{{ __action.icon }}</i>
+      {{ __action.label }}
     </button>
   </div>
 </template>
@@ -13,21 +13,11 @@
     props: {
       actions: {
         default: () => ([])
-      },
-      perform: {
-        default: () => {
-          return (vm) => {
-            vm.$parent.applyRecord()
-          }
-        }
       }
     },
     methods: {
       click (action) {
-        action.click(this)
-      },
-      apply () {
-        this.perform(this)
+        this.$parent.resolveAction(action)
       }
     }
   }

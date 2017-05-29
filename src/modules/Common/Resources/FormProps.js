@@ -1,5 +1,9 @@
 const FormProps = {
   props: {
+    tabs: {
+      type: Array,
+      default: () => ([])
+    },
     schemas: {
       default: () => ({})
     },
@@ -10,7 +14,11 @@ const FormProps = {
       type: String,
       default: ''
     },
-    environment: {
+    scope: {
+      type: String,
+      default: ''
+    },
+    base: {
       type: String,
       default: ''
     },
@@ -18,7 +26,7 @@ const FormProps = {
       type: Object,
       default: () => ({})
     },
-    base: {
+    action: {
       type: String,
       default: ''
     },
@@ -37,6 +45,7 @@ const FormProps = {
           position: ['top', 'bottom'],
           classNames: ['link', 'raised'],
           label: 'Fechar',
+          icon: 'add',
           click: vm => {
             vm.$router.push(vm.$parent.base)
           }

@@ -12,8 +12,25 @@ const FormHooks = {
    * hook BeforeCreate
    */
   created () {
-    this.items = parseItems(this.schemas, this.environment)
+    /**
+     * @type {{}}
+     */
+    this.items = parseItems(this.schemas, this.scope)
+    /**
+     */
     this.record = parseRecord(this.items)
+    /**
+     */
+    if (this.tabs.length) {
+      const itemsFromTab = {}
+      this.tabs.forEach(_tab => {
+        if (!this.selected) {
+          this.selected = _tab.value
+        }
+        itemsFromTab[_tab.value] = parseItems(this.schemas.filter(_item => _item.schema.tab === _tab.value), this.scope)
+      })
+      this.itemsFromTab = itemsFromTab
+    }
   },
   // getData from service
   beforeRouteEnter (to, from, next) {
