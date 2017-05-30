@@ -1,15 +1,41 @@
 
+$scrollbar-track = #c6c6c6
+$scrollbar-thumb = lighten($scrollbar-track, 30%)
+
 ::-webkit-scrollbar
-  width 4px
+  width 7px
 ::-webkit-scrollbar-track
-  border-radius 4px
-  box-shadow inset 0 0 3px $primary
-  background #fff
+  background $scrollbar-track
+  border 3px solid transparent
+  background-clip content-box
 ::-webkit-scrollbar-thumb
-  border-radius 4px
-  background darken($primary, 10%)
+  background $scrollbar-thumb
+  border 1px solid $scrollbar-track
 ::-webkit-scrollbar-thumb:window-inactive
-  background darken($primary, 10%)
+  background $scrollbar-thumb
+
+.mini-scroll::-webkit-scrollbar, .drawer-content::-webkit-scrollbar
+  width 3px
+.mini-scroll::-webkit-scrollbar-track, .drawer-content::-webkit-scrollbar-track
+  background $scrollbar-track
+  border 1px solid transparent
+  background-clip content-box
+.mini-scroll::-webkit-scrollbar-thumb, .drawer-content::-webkit-scrollbar-thumb
+  background $scrollbar-thumb
+  border 1px solid $scrollbar-track
+.mini-scroll::-webkit-scrollbar-thumb:window-inactive, .drawer-content::-webkit-scrollbar-thumb:window-inactive
+  background $scrollbar-thumb
+
+hr
+  margin 20px 0
+  border 0
+  height 2px
+  background-image linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(210, 210, 210, 0.75), rgba(0, 0, 0, 0.05))
+
+.drawer
+  .item > .item-primary ~ .item-content
+    margin-left 60px
+
 
 .sub-toolbar
   align-items baseline

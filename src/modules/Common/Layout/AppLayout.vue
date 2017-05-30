@@ -3,7 +3,7 @@
 
     <div v-if="header" slot="header" class="toolbar">
         <app-drawer-toggle v-if="left" :drawer="leftDrawer"
-                           side="left" v-show="swipe"></app-drawer-toggle>
+                           side="left" v-show="showToggleDrawerLeft"></app-drawer-toggle>
 
         <slot name="header">
           <app-toolbar></app-toolbar>
@@ -91,6 +91,9 @@
           classNames.push('no-scroll')
         }
         return classNames
+      },
+      showToggleDrawerLeft () {
+        return this.left
       }
     },
     methods: {
@@ -127,5 +130,5 @@
   @media (min-width: 768px)
     .flat-header:not(.swipe-header):not(.no-left)
       .layout-header
-        padding-left 280px
+        padding-left 250px
 </style>

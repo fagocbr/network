@@ -34,32 +34,60 @@
           label: 'Home'
         },
         {
-          icon: 'web',
+          label: 'Registro Acadêmico',
+          icon: 'assignment_ind',
           to: {
-            path: '/dashboard/forms', exact: true
-          },
-          label: 'Forms'
+            path: '/dashboard/academic', exact: true
+          }
         },
         {
-          icon: 'pie_chart_outlined',
+          label: 'Financeiro',
+          icon: 'attach_money',
           to: {
-            path: '/dashboard/charts', exact: true
-          },
-          label: 'Charts'
+            path: '/dashboard/financial', exact: true
+          }
         },
         {
-          icon: 'pets',
+          label: 'Ouvidoria',
+          icon: 'announcement',
           to: {
-            path: '/dashboard/crud', exact: true
-          },
-          label: 'CRUD'
+            path: '/dashboard/ombudsman', exact: true
+          }
         },
         {
-          icon: 'power_settings_new',
+          label: 'Arquivos',
+          icon: 'folder',
           to: {
-            path: '/', exact: true
-          },
-          label: 'Logout'
+            path: '/dashboard/files', exact: true
+          }
+        },
+        {
+          label: 'Benefícios',
+          icon: 'card_giftcard',
+          to: {
+            path: '/dashboard/benefits', exact: true
+          }
+        },
+        {
+          label: 'Indicação Valiosa',
+          icon: 'thumb_up',
+          to: {
+            path: '/dashboard/indication', exact: true
+          }
+        },
+        {
+          label: 'Dispensas',
+          icon: 'done_all',
+          to: {
+            path: '/dashboard/dispensation', exact: true
+          }
+        },
+        {
+          label: 'Colação de Grau',
+          icon: 'school',
+          to: {
+            path: '/dashboard/graduation', exact: true
+          }
         }
       ])
     }

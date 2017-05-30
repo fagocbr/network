@@ -81,7 +81,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldKeyDown (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('key_down', value, $event)
     },
     /**
@@ -89,7 +89,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldKeyPress (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('key_press', value, $event)
     },
     /**
@@ -97,7 +97,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldKeyUp (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('key_up', value, $event)
     },
     /**
@@ -105,7 +105,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldMouseUp (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('mouse_up', value, $event)
     },
     /**
@@ -113,7 +113,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldFocus (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('focus', value, $event)
     },
     /**
@@ -121,7 +121,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldBlur (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('blur', value, $event)
     },
     /**
@@ -129,7 +129,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldCut (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('cut', value, $event)
     },
     /**
@@ -137,7 +137,7 @@ const Abstract = {
      * @param {object} $event
      */
     fieldCopy (value, $event) {
-      this.updateValue(value)
+      // this.updateValue(value)
       this.$emit('copy', value, $event)
     },
     /**

@@ -25,7 +25,7 @@
       border-color #e2e2e2
       background-color #fff
       vertical-align top
-      border-radius 2px
+      border-radius 1px
       box-shadow 1px 3px 4px 0 rgba(0, 0, 0, 0.03), 0 0 3px 0px rgba(0, 0, 0, 0.03), inset 1px 2px 3px 0 rgba(0, 0, 0, 0.05), inset 0 0 3px 0px rgba(0, 0, 0, 0.05)
       transition all .5s ease;
     input:not(.no-style):hover, textarea:not(.no-style):hover, .textfield:not(.no-style):hover
@@ -43,7 +43,8 @@
 
     input:not(.no-style):focus, textarea:not(.no-style):focus, .textfield:not(.no-style):focus
       box-shadow 0 3px 8px 0 rgba(0, 0, 0, 0.33), 0 0 0 1px rgba(0, 0, 0, 0.1)
-      border-color #d2d2d2
+      border-color transparent
+      // border-color #d2d2d2
 
     &.has-error
       input:not(.no-style), textarea:not(.no-style), .textfield:not(.no-style)
