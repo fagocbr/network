@@ -40,7 +40,7 @@
     data: () => ({
       schemas: {
         user: {
-          component: 'field-text',
+          component: 'field-input',
           label: 'Login'
         },
         password: {
