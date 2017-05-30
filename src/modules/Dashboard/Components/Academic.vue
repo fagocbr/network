@@ -31,7 +31,7 @@
           scope: ['create', 'index', 'edit'],
           schema: {
             tab: 'one',
-            component: 'field-text',
+            component: 'field-input',
             order: 1,
             overrides: {
               index: {

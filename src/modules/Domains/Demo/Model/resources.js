@@ -18,7 +18,23 @@ export const schemas = [
     label: 'Nome',
     scope: ['create', 'edit'],
     schema: {
-      component: 'field-text',
+      component: 'field-input',
+      order: 1,
+      disabled: true,
+      overrides: {
+        edit: {
+          order: 2
+        }
+      }
+    }
+  },
+  {
+    field: 'aln_observacao',
+    label: 'Observação',
+    scope: ['create', 'edit'],
+    schema: {
+      component: 'field-textarea',
+      disabled: true,
       order: 1,
       overrides: {
         edit: {
@@ -33,6 +49,33 @@ export const schemas = [
     scope: ['create', 'edit'],
     schema: {
       component: 'field-radio',
+      options: [
+        {
+          value: 'F',
+          label: 'Feminino'
+        },
+        {
+          value: 'M',
+          label: 'Masculino'
+        }
+      ],
+      default: 'F',
+      order: 1,
+      overrides: {
+        edit: {
+          order: 2
+        }
+      }
+    }
+  },
+  {
+    field: 'aln_dinheiro',
+    label: 'Sexo',
+    scope: ['create', 'edit'],
+    schema: {
+      component: 'field-radio',
+      disabled: true,
+      default: 'M',
       options: [
         {
           value: 'F',
