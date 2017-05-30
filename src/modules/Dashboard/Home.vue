@@ -1,5 +1,14 @@
 <template>
-  <app-layout :left="left" :right="right" :footer="footer" :swipe="swipe" :flat="flat" :search="search"></app-layout>
+  <app-layout :left="left" :right="right" :footer="footer" :swipe="swipe" :flat="flat" :search="search">
+    <div slot="header" style="padding: 0 10px">
+      <q-dialog-select class="dialog-select" type="radio" v-model="nature.selected" :options="nature.options"
+                       ok-label="Selecionar" cancel-label="Fechar" title="Matrículas"></q-dialog-select>
+      <q-dialog-select class="dialog-select" type="radio" v-model="course.selected" :options="course.options"
+                       ok-label="Selecionar" cancel-label="Fechar" title="Matrículas"></q-dialog-select>
+      <q-dialog-select class="dialog-select" type="radio" v-model="reference.selected" :options="reference.options"
+                       ok-label="Selecionar" cancel-label="Fechar" title="Matrículas"></q-dialog-select>
+    </div>
+  </app-layout>
 </template>
 
 <script type="text/javascript">
@@ -22,13 +31,33 @@
       swipe: false,
       flat: true,
       search: true,
-      selected: '2',
-      options: [
-        {
-          value: '2',
-          label: 'CIÊNCIA DA COMPUTAÇÃO'
-        }
-      ]
+      nature: {
+        selected: '2',
+        options: [
+          {
+            value: '2',
+            label: 'GRADUAÇÃO'
+          }
+        ]
+      },
+      course: {
+        selected: '2',
+        options: [
+          {
+            value: '2',
+            label: 'CIÊNCIA DA COMPUTAÇÃO'
+          }
+        ]
+      },
+      reference: {
+        selected: '2',
+        options: [
+          {
+            value: '2',
+            label: '2017-1'
+          }
+        ]
+      }
     }),
     created () {
       this.setAppMenuLeft([
@@ -101,4 +130,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  .dialog-select
+    margin 0 10px 0 0
 </style>

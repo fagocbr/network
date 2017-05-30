@@ -1,85 +1,50 @@
 <template>
-  <div class="app-content">
+  <div class="app-content" style="position: relative">
     <div class="toolbar sub-toolbar">
-      Forms
+      <q-dialog-select type="radio" v-model="selected" :options="options" style="min-width: 250px"
+                       ok-label="Selecionar" cancel-label="Fechar" title="Matrículas"></q-dialog-select>
     </div>
     <div class="app-container">
-      <resource-form :title="title" :base="base" :service="service" :action="action"
-                     :scope="scope" :schemas="schemas" :actions="actions"></resource-form>
+      <q-tabs :refs="$refs" default-tab="tab-1">
+        <q-tab name="tab-1" route="/dashboard/resume">
+          Resumo
+        </q-tab>
+        <q-tab name="tab-2" route="/dashboard/academic/courses/disciplines">
+          Disciplinas
+        </q-tab>
+        <q-tab name="tab-3" route="/dashboard/academic/courses/internship">
+          Estágio
+        </q-tab>
+      </q-tabs>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-  import ResourceForm from 'src/modules/Common/Resources/Form.vue'
-
   export default {
-    name: 'dashboard-form',
-    components: {
-      ResourceForm
-    },
+    name: '',
+    props: {},
     data: () => ({
-      title: 'Forms do Mal',
-      base: '/dashboard/forms',
-      service: {},
-      action: 'create',
-      scope: 'create',
-      schemas: [
+      selected: '2',
+      options: [
         {
-          field: 'aln_nome',
-          label: 'Nome',
-          scope: ['create', 'index', 'edit'],
-          schema: {
-            tab: 'one',
-            component: 'field-input',
-            order: 1,
-            overrides: {
-              index: {
-                order: 2
-              }
-            }
-          }
-        }
-      ],
-      actions: [
-        {
-          id: 'save',
-          position: ['top', 'bottom'],
-          classNames: ['primary', 'raised'],
-          disabled: true,
-          label: 'Salvar',
-          click: resourceForm => {
-            resourceForm.applyRecord()
-          }
-        },
-        {
-          position: ['top', 'bottom'],
-          classNames: ['raised'],
-          label: 'Habilitar',
-          click: resourceForm => {
-            resourceForm.mapAction(_action => {
-              if (_action.id === 'save') {
-                _action.disabled = !_action.disabled
-              }
-              return _action
-            })
-          }
-        },
-        {
-          position: ['floating'],
-          classNames: ['primary', 'circular', 'button-bottom-right', 'raised'],
-          label: '',
-          icon: 'add',
-          click: resourceForm => {
-            resourceForm.$router.push(`${resourceForm.base}/create`)
-          }
+          value: '2',
+          label: 'CIÊNCIA DA COMPUTAÇÃO'
         }
       ]
-    })
+    }),
+    computed: {},
+    methods: {},
+    created () {
+    },
+    mounted () {
+    }
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  .app-content
-    position relative
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  .q-tab {
+    min-height: 0;
+    padding: 5px 20px 5px 20px;
+  }
 </style>

@@ -1,11 +1,17 @@
 export default [
   {
+    path: '/home',
+    component: 'Dashboard/Home',
+    children: [
+      {
+        path: '', component: 'Domains/Course/Components/Index'
+      }
+    ]
+  },
+  {
     path: '/dashboard',
     component: 'Dashboard/Index',
     children: [
-      {
-        path: '', component: 'Dashboard/Components/Home'
-      },
       {
         path: 'academic', component: 'Dashboard/Components/Academic'
       },
@@ -29,9 +35,6 @@ export default [
       },
       {
         path: 'graduation', component: 'Dashboard/Components/Graduation'
-      },
-      {
-        path: '*', component: 'Dashboard/Components/Home'
       }
     ]
   }

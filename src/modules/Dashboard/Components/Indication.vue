@@ -1,19 +1,30 @@
 <template>
-  <div>
+  <div class="app-content" style="position: relative">
+    <div class="toolbar sub-toolbar">
+      Home
+    </div>
+    <div class="app-container">
+      <resource-form :title="title" :base="base" :scope="scope" :schemas="schemas" :service="service"></resource-form>
+    </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import ResourceForm from 'src/modules/Common/Resources/Form.vue'
+  import {schemas, service} from 'src/modules/Domains/Demo/Model/resources'
+
   export default {
-    name: '',
-    props: {},
-    data: () => ({}),
-    computed: {},
-    methods: {},
-    created () {
+    name: 'dashboard-home',
+    components: {
+      'resource-form': ResourceForm
     },
-    mounted () {
-    }
+    data: () => ({
+      title: 'Formulário do Mal',
+      base: '/dashboard',
+      scope: 'edit',
+      service: service,
+      schemas: schemas
+    })
   }
 </script>
 

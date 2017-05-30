@@ -13,7 +13,7 @@
                            side="right"></app-drawer-toggle>
     </div>
 
-    <app-drawer-left ref="leftDrawer" v-show="left" :flat="flat" :swipe="swipe"></app-drawer-left>
+    <app-drawer-left ref="leftDrawer" v-show="left" :flat="flat" :swipe="swipe" :search="search"></app-drawer-left>
 
     <slot name="content">
       <div class="layout-view" ref="layoutView">
@@ -66,6 +66,10 @@
         default: false
       },
       swipe: {
+        type: Boolean,
+        default: false
+      },
+      search: {
         type: Boolean,
         default: false
       }

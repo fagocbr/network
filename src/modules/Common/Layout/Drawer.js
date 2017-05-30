@@ -12,9 +12,15 @@ export default (side) => {
       flat: {
         type: Boolean,
         default: true
+      },
+      search: {
+        type: Boolean,
+        default: false
       }
     },
-    data: () => ({}),
+    data: () => ({
+      filter: ''
+    }),
     computed: {
       ...mapGetters(['AppMenuLeft']),
       classNames () {
@@ -23,6 +29,11 @@ export default (side) => {
           classNames.push('flat')
         }
         return classNames
+      },
+      menuLeft () {
+        return this.AppMenuLeft.filter(_item => {
+          return !this.filter || String(_item.label).toUpperCase().includes(this.filter.toUpperCase())
+        })
       }
     },
     methods: {

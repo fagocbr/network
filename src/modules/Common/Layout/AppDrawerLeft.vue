@@ -7,10 +7,10 @@
       </div>
     </div>
     <div class="list no-border platform-delimiter">
-      <input type="text" placeholder="Pesquisar" class="full-width">
-      <q-drawer-link v-for="__item in AppMenuLeft"
-                     :key="__item.icon" :icon="__item.icon" :to="__item.to">
-        {{ __item.label }}
+      <input v-if="search" v-model="filter" placeholder="Pesquisar" class="drawer-search full-width">
+      <q-drawer-link v-for="_item in menuLeft" :key="_item.icon"
+                     :icon="_item.icon" :to="_item.to">
+        {{ _item.label }}
       </q-drawer-link>
     </div>
   </q-drawer>
@@ -24,10 +24,11 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .drawer
-    .field-search
-      color #fff
-    .field-search::placeholder
-      color #fff
+    .drawer-search
+      padding 10px
+    .drawer-search::placeholder
+      font-style italic
+      color #dddddd
     .user-avatar
       display block
       margin 10px 25px
