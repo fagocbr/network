@@ -2,7 +2,7 @@ import AbstractInput from 'src/modules/Common/Fields/Contracts/AbstractInput.vue
 
 const FieldText = {
   mixins: [AbstractInput],
-  name: 'field-text',
+  name: 'field-input',
   /**
    * Hook created to configure classNames
    */
