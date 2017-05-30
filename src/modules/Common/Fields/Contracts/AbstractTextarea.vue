@@ -4,7 +4,7 @@
       <label class="primary-label" :for="properties.id" v-if="!properties.inline">{{ label }}</label>
     </slot>
     <slot name="component">
-      <input :type="type" ref="input" :name="properties.name" :id="properties.id" :value="value"
+      <textarea ref="input" :name="properties.name" :id="properties.id" :value="value"
              :class="['input', 'full-width']"
              :disabled="properties.disabled" :placeholder="properties.placeholder" :title="properties.title"
              :required="properties.required"
@@ -17,7 +17,7 @@
              @copy="fieldCopy($event.target.value, $event)"
              @paste="fieldPaste($event.target.value, $event)"
              @blur="fieldBlur($event.target.value, $event)"
-             @input="updateValue($event.target.value, $event)"/>
+             @input="updateValue($event.target.value, $event)"></textarea>
       <span class="input-bar"></span>
     </slot>
     <slot name="error">
@@ -30,10 +30,7 @@
 
   export default {
     extends: Abstract,
-    name: 'abstract-input',
-    data: () => ({
-      type: 'text'
-    })
+    name: 'abstract-textarea'
   }
 </script>
 
