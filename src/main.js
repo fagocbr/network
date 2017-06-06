@@ -9,8 +9,8 @@ require(`./themes/app.${__THEME}.styl`)
 
 import Vue from 'vue'
 import Quasar from 'quasar-framework'
-import router from 'src/router'
-import store from 'src/store'
+import router from 'src/router/index'
+import store from 'src/store/index'
 
 Vue.use(Quasar) // Install Quasar Framework
 

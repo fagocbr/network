@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import {router as Auth} from 'src/modules/Auth'
-import {router as Dashboard} from 'src/modules/Dashboard'
+import {router as auth} from 'src/modules/Auth/index'
+import {router as dashboard} from 'src/modules/Dashboard/index'
 
 Vue.use(VueRouter)
 
@@ -21,8 +21,8 @@ const configure = (routes) => {
 }
 
 const routes = configure([
-  ...Auth,
-  ...Dashboard,
+  ...auth,
+  ...dashboard,
   { path: '*', component: 'Error404' }
 ])
 

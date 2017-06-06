@@ -1,10 +1,10 @@
 export default [
   {
     path: '/home',
-    component: 'Dashboard/Home',
+    component: 'Domains/Home/Index',
     children: [
       {
-        path: '', component: 'Domains/Course/Components/Index'
+        path: '', component: 'Domains/Home/Components/Course/Index'
       }
     ]
   },

@@ -1,0 +1,24 @@
+.grid
+  display flex
+  width 100%
+  &.--wrap
+    flex-wrap wrap
+    flex-flow row wrap
+  .column
+    text-align left
+    width 100%
+    display block
+    -webkit-box-orient inherit
+    -webkit-box-direction inherit
+    -ms-flex-direction inherit
+    flex-direction inherit
+    &.--gutter
+      padding 5px
+      margin 0 0 10px 0
+
+@media (min-width 768px)
+  .grid
+    .column
+      for width in (1..20)
+        &.has-{width * 5}
+          max-width (width * 5)%
