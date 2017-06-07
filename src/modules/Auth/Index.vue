@@ -1,6 +1,5 @@
 <template>
   <div class="auth">
-
     <app-layout :left="false" :right="false" :footer="false">
       <stars slot="content">
         <div class="form-login">

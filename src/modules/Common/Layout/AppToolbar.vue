@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/javascript">
-  export default {
+  const AppToolbar = {
     name: 'app-toolbar',
     props: {},
     data: () => ({
@@ -23,6 +23,8 @@
     mounted () {
     }
   }
+
+  export default AppToolbar
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

@@ -11,11 +11,10 @@
 </template>
 
 <script type="text/javascript">
-  export default {
+  const AppDrawerToggle = {
     name: 'app-drawer-toggle',
     props: ['side', 'drawer'],
-    data: () => ({
-    }),
+    data: () => ({}),
     computed: {
       classNames () {
         return ['button-toggle', this.side]
@@ -29,6 +28,8 @@
     mounted () {
     }
   }
+
+  export default AppDrawerToggle
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
@@ -41,6 +42,7 @@
     border-radius: 2px
     transition all .25s
     cursor pointer
+
   .icon-bar
     display block
     position absolute
@@ -56,12 +58,13 @@
       margin 6px
       font-size 1px
       transition all .3s
+
   .button-toggle
     position fixed
     z-index 2
     top 0
     &.left
-      left 0
+      left 10px
     &.right
       right 0
       i
@@ -69,18 +72,23 @@
 
   .icon-bar:nth-child(1)
     top 0
+
   .icon-bar:nth-child(2)
     top 7px
+
   .icon-bar:nth-child(3)
     top 14px
+
   .button-toggle.left:hover .icon-bar:nth-child(1),
   .button-toggle.left:hover .icon-bar:nth-child(3)
     transform translate(-45px, 0)
     opacity 0
+
   .button-toggle.right:hover .icon-bar:nth-child(1),
   .button-toggle.right:hover .icon-bar:nth-child(3)
     transform translate(45px, 0)
     opacity 0
+
   .button-toggle:hover .icon-bar:nth-child(2)
     margin -14px 0 0 0
     height 30px

@@ -1,5 +1,5 @@
 <template>
-  <app-widget ref="appWidget" :title="title" :buttons="buttons">
+  <app-widget ref="appWidget" :title="title" :buttons="buttons" :clear="clear">
     <div slot="content">Teste</div>
   </app-widget>
 </template>
@@ -12,6 +12,11 @@
       AppWidget
     },
     name: 'widget-subjects',
+    props: {
+      clear: {
+        default: false
+      }
+    },
     data () {
       return {
         title: 'Resumo Acadêmico',

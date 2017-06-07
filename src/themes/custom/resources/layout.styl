@@ -1,4 +1,7 @@
 
+html, body
+  overflow hidden
+
 $scrollbar-track = #c6c6c6
 $scrollbar-thumb = lighten($scrollbar-track, 30%)
 
@@ -59,19 +62,20 @@ hr
   padding 10px
   width 96%
   min-height 200px
-
+@media (max-width 768px)
+  .app-container
+    padding 5px
 
 .layout-view
   overflow hidden
   overflow-y scroll
-  background: $primary;
-  background: -moz-linear-gradient(top,  $primary 0%, $primary 200px, #adadad 200px, #e6e6e6 210px, #e6e6e6 100%);
-  background: -webkit-linear-gradient(top,  $primary 0%,$primary 200px,#adadad 200px,#e6e6e6 210px,#e6e6e6 100%);
-  background: linear-gradient(to bottom,  $primary 0%,$primary 200px,#adadad 200px,#e6e6e6 210px,#e6e6e6 100%);
-
+  background $primary
+  background -moz-linear-gradient(top,  $primary 0%, $primary 200px, #adadad 200px, #e6e6e6 210px, #e6e6e6 100%)
+  background -webkit-linear-gradient(top,  $primary 0%,$primary 200px,#adadad 200px,#e6e6e6 210px,#e6e6e6 100%)
+  background linear-gradient(to bottom,  $primary 0%,$primary 200px,#adadad 200px,#e6e6e6 210px,#e6e6e6 100%)
 
 .layout-router
-  transition: .2s
+  transition .2s
   background #f5f5f5
 
 
@@ -81,51 +85,54 @@ hr
   padding-left 15px
   margin-right auto
   margin-left auto
-@media (min-width: 768px)
+@media (min-width 768px)
   .container
-    width: 750px
-@media (min-width: 992px)
+    width 750px
+@media (min-width 992px)
   .container
     width 970px
-@media (min-width: 1200px)
+@media (min-width 1200px)
   .container
     width 1170px
 
+.form-wrapper
+  background #fff
+  padding 0
+  border-radius 2px
 .form-container, .grid-container
   // box-shadow 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12)
   .form-title
     text-align right
     padding 15px
-    background #f4f4f4
-    border-radius 2px 2px 0 0
+    background #ffffff
   .form-title, .form-top, .form-bottom, .grid-top, .grid-bottom
-    color #9f9f9f
+    color #474747
     font-family Play
     font-size 20px
     border-style solid
-    border-color #dddddd
-    border-width 1px 1px 0 1px
+    border-color #d2d2d2
+    border-width 0
   .form-top, .form-bottom, .grid-top, .grid-bottom
+    background-color #f1f1f1
     padding 5px 10px
     button
       padding 9px 18px
       min-height 0
       box-shadow 0 1px 3px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.2)
   .form-top
-    border-width 1px 1px 0 1px
+    border-width 1px 0 0 0
     // border-radius 2px 2px 0 0
   .form-bottom
-    border-width 0 1px 1px 1px
-    border-radius 0 0 2px 2px
+    border-width 0 0 1px 0
   .form-body, .grid-body
     background #fff
     padding 10px
-    border-width 1px
+    border-width 1px 0 1px 0
     border-style solid
-    border-color #dddddd
+    border-color #d2d2d2
   .grid-body
     padding 0
-    border-width 0 1px 1px 1px
+    border-width 1px 0 0 0
 
 .form-floating-action
   position fixed

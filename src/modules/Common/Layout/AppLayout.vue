@@ -2,15 +2,15 @@
   <q-layout :class="classNames">
 
     <div v-if="header" slot="header" class="toolbar">
-        <app-drawer-toggle v-if="left" :drawer="leftDrawer"
-                           side="left" v-show="showToggleDrawerLeft"></app-drawer-toggle>
+      <app-drawer-toggle v-if="left" :drawer="leftDrawer"
+                         side="left" v-show="showToggleDrawerLeft"></app-drawer-toggle>
 
-        <slot name="header">
-          <app-toolbar></app-toolbar>
-        </slot>
+      <slot name="header">
+        <app-toolbar></app-toolbar>
+      </slot>
 
-        <app-drawer-toggle v-if="right" :drawer="rightDrawer"
-                           side="right"></app-drawer-toggle>
+      <app-drawer-toggle v-if="right" :drawer="rightDrawer"
+                         side="right"></app-drawer-toggle>
     </div>
 
     <app-drawer-left ref="leftDrawer" v-show="left" :flat="flat" :swipe="swipe" :search="search"></app-drawer-left>
@@ -39,7 +39,7 @@
   import AppDrawerRight from 'src/modules/Common/Layout/AppDrawerRight.vue'
   import AppFooter from 'src/modules/Common/Layout/AppFooter.vue'
 
-  export default {
+  const AppLayout = {
     name: 'app-layout',
     components: {
       AppToolbar, AppDrawerToggle, AppDrawerLeft, AppDrawerRight, AppFooter
@@ -118,20 +118,24 @@
       }
     }
   }
+
+  export default AppLayout
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
   .flat-header
     &.no-scroll .layout-header
-        box-shadow none
+      box-shadow none
+
   .flat-header
     .layout-header
-      padding-left 28px
+      padding-left 38px
+
   .swipe-header:not(.no-left)
     .layout-header
-      padding-left 28px
+      padding-left 38px
 
-  @media (min-width: 768px)
+  @media (min-width 768px)
     .flat-header:not(.swipe-header):not(.no-left)
       .layout-header
         padding-left 250px

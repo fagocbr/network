@@ -34,7 +34,6 @@ export const schemas = [
     scope: ['create', 'edit'],
     schema: {
       component: 'field-textarea',
-      disabled: true,
       order: 1,
       overrides: {
         edit: {

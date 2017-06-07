@@ -1,7 +1,7 @@
 <template>
-  <div class="app-widget card">
+  <div :class="['app-widget', 'card', clear ? ' --clear' : '']">
 
-    <div class="card-title">
+    <div class="card-title" v-if="title">
       <slot name="title">
         <label v-html="title"></label>
         <div class="pull-right">
@@ -12,21 +12,34 @@
       </slot>
     </div>
 
-    <div class="card-content">
+    <div class="card-content" :style="style">
       <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
-  export default {
+  const AppWidget = {
     name: 'app-widget',
     props: {
       title: {
         default: ''
       },
+      padding: {
+        default: '20px'
+      },
+      clear: {
+        default: false
+      },
       buttons: {
         default: () => ([])
+      }
+    },
+    computed: {
+      style () {
+        return {
+          'padding': this.padding
+        }
       }
     },
     methods: {
@@ -40,12 +53,18 @@
       }
     }
   }
+
+  export default AppWidget
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
   .app-widget.card
     font-family Roboto
     background #ffffff
+    margin 0
+    &.--clear
+      background transparent
+      box-shadow none
     .card-title
       label
         font-size 18px

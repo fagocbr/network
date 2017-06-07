@@ -1,7 +1,7 @@
 // drawer
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
-export default (side) => {
+const Drawer = (side) => {
   return {
     name: 'app-drawer-' + side,
     props: {
@@ -31,9 +31,17 @@ export default (side) => {
         return classNames
       },
       menuLeft () {
-        return this.AppMenuLeft.filter(_item => {
-          return !this.filter || String(_item.label).toUpperCase().includes(this.filter.toUpperCase())
-        })
+        return this.AppMenuLeft
+          .filter(_item => {
+            return !this.filter || String(_item.label).toUpperCase().includes(this.filter.toUpperCase())
+          })
+          .map(_item => {
+            _item.html = _item.label.replace(
+              new RegExp(this.filter, 'g'),
+              '<mark>' + this.filter + '</mark>'
+            )
+            return _item
+          })
       }
     },
     methods: {
@@ -47,3 +55,5 @@ export default (side) => {
     }
   }
 }
+
+export default Drawer

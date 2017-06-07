@@ -4,7 +4,7 @@
 </template>
 
 <script type="text/javascript">
-  export default {
+  const AppFooter = {
     name: 'app-footer',
     props: {},
     data: () => ({}),
@@ -15,6 +15,8 @@
     created () {
     }
   }
+
+  export default AppFooter
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
