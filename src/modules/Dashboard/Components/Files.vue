@@ -3,7 +3,7 @@
     <div class="toolbar sub-toolbar">
       <q-tabs ref="tab" :default-tab="selected">
         <q-tab v-for="_tab in tabs" :key="_tab.id" :name="'t-' + _tab.id">
-          <i class="q-tab-closer" @click.stop.prevent="closeTab(_tab)">highlight_off</i>
+          <i class="q-tab-closer" @click.stop.prevent="closeTab(_tab)">clear</i>
           <label class="q-tab-inner" @click="selectTab(_tab)" v-html="_tab.label"></label>
         </q-tab>
       </q-tabs>
@@ -93,6 +93,9 @@
       top 0
       right 0
       z-index 2
+      transition color .3s
+      &:hover
+        color #931717
 
   .q-tab.active
     color #388e3c
@@ -100,4 +103,9 @@
     background #fff
     border-radius 2px 2px 0 0
     z-index 10
+    .q-tab-closer
+      color #f11919
+      &:hover
+        color #891515
+        text-shadow 1px 1px 1px rgba(255, 0, 0, 0.5)
 </style>

@@ -3,7 +3,7 @@
     <div class="toolbar sub-toolbar">
       Forms
     </div>
-    <div class="app-container">
+    <div class="app-container form-wrapper">
       <resource-form :title="title" :base="base" :service="service" :action="action"
                      :scope="scope" :schemas="schemas" :actions="actions"></resource-form>
     </div>

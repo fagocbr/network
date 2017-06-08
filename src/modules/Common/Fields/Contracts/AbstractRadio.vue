@@ -1,6 +1,6 @@
 <template>
   <div :class="classNames">
-    <label class="primary-label" v-if="!properties.inline">{{ label }}</label>
+    <label class="primary-label" :disabled="properties.disabled" v-if="!properties.inline">{{ label }}</label>
     <label v-for="__option in options" :class="['radio-item', properties.disabled ? 'disabled' : '']">
       <q-radio :val="__option.value" :disable="properties.disabled" v-model="model" @input="$emit('input', model)"></q-radio>
       {{ __option.label }}

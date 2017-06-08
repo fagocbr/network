@@ -69,6 +69,10 @@
       right 0
       i
         transform rotate(180deg)
+   @media (max-width 768px)
+    .button-toggle
+      &.left
+        left 0
 
   .icon-bar:nth-child(1)
     top 0

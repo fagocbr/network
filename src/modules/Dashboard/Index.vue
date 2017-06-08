@@ -1,21 +1,31 @@
 <template>
-  <app-layout :left="left" :right="right" :footer="footer" :swipe="swipe" :flat="flat" :search="search"></app-layout>
+  <app-layout :left="left" :right="right" :footer="footer" :swipe="swipe" :flat="flat" :search="search">
+    <div slot="header">
+      <app-toolbar>
+        <div slot="left">
+          <app-drawer-pin v-model="swipe"></app-drawer-pin> {{ title }}
+        </div>
+      </app-toolbar>
+    </div>
+  </app-layout>
 </template>
 
 <script type="text/javascript">
   import AppLayout from 'src/modules/Common/Layout/AppLayout.vue'
   import AppToolbar from 'src/modules/Common/Layout/AppToolbar.vue'
+  import AppDrawerPin from 'src/modules/Common/Layout/AppDrawerPin.vue'
   import {mapActions} from 'vuex'
 
   export default {
     name: 'dashboard',
     components: {
-      AppLayout, AppToolbar
+      AppLayout, AppToolbar, AppDrawerPin
     },
     methods: {
       ...mapActions(['setAppMenuLeft'])
     },
     data: () => ({
+      title: 'Title',
       left: true,
       right: true,
       footer: false,

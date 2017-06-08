@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <slot name="label">
-      <label class="primary-label" :for="properties.id" v-if="!properties.inline">{{ label }}</label>
+      <label class="primary-label" :disabled="properties.disabled" :for="properties.id" v-if="!properties.inline">{{ label }}</label>
     </slot>
     <slot name="component">
       <textarea ref="input" :name="properties.name" :id="properties.id" :value="value"

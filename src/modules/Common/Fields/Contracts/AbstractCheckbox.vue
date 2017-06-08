@@ -1,7 +1,7 @@
 <template>
   <div :class="classNames">
     <slot name="label">
-      <label class="label-checkbox" @click="checked = !checked" v-if="!properties.inline">
+      <label class="label-checkbox" :disabled="properties.disabled" @click="checked = !checked" v-if="!properties.inline">
         {{ label }}
       </label>
     </slot>

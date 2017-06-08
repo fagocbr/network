@@ -17,14 +17,13 @@
 
 <script type="text/javascript">
   import AppLayout from 'src/modules/Common/Layout/AppLayout.vue'
-  import AppToolbar from 'src/modules/Common/Layout/AppToolbar.vue'
   import AppDrawerPin from 'src/modules/Common/Layout/AppDrawerPin.vue'
   import {mapActions} from 'vuex'
 
   export default {
     name: 'dashboard',
     components: {
-      AppLayout, AppToolbar, AppDrawerPin
+      AppLayout, AppDrawerPin
     },
     methods: {
       ...mapActions(['setAppMenuLeft'])
